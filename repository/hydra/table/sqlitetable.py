@@ -1,4 +1,7 @@
-class Table:
+from .abstracttable import AbstractTable
+
+
+class SQLiteTable(AbstractTable):
     def __init__(self, connection, row, column):
         """
         Add, drop, copy, or modify a table.
@@ -10,7 +13,7 @@ class Table:
             Make sure to pass the connection object as its parameter.
 
         Examples:
-            >>> self.tbl = Table('pass connection obj')
+            >>> self.tbl = SQLiteTable('pass connection obj')
 
         Args:
             connection (:obj:`Connection`): Connect to the file.
@@ -205,10 +208,10 @@ class Table:
 
         Note:
             Pass the table name as a parameter
-        
+
         Examples:
             >>> print(self.fetch('table_name'))
-        
+
         Args:
             table (str): Fetch data from this table.
 
